@@ -29,3 +29,14 @@ El sistema realiza los cálculos de importes, validaciones de transacciones y ap
 
 ## 6. Conclusión
 Las pruebas unitarias son fundamentales en el desarrollo de software de comercio electrónico, ya que permiten automatizar la verificación de las reglas de negocio, detectar fallos en los límites de condiciones financieras y garantizar la fiabilidad del sistema antes de su puesta en producción.
+
+### Reflexión Final
+
+La prueba unitaria encargada de evaluar el límite exacto del descuento (`testCalculateDiscount` o `testCalculateFinalPrice` con un subtotal de $1,000) permitiría detectar este error. 
+
+Si el sistema fallase en este punto, significaría que el operador lógico implementado utiliza un estricto `>` en lugar de un `>=`. 
+
+#### Consecuencias comerciales:
+* Los clientes que realicen compras exactas de $1,000 pagarían de más (el precio completo sin el 10% de descuento que les corresponde).
+* Se dañaría la experiencia del usuario.
+* Se generarían discrepancias en las políticas de cobro de la tienda en línea.
